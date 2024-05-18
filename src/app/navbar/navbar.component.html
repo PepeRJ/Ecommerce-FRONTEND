@@ -1,0 +1,9 @@
+<nav class="navbar">
+  <div class="menu">
+    <a [routerLink]="'/'">Inicio</a>
+    <a [routerLink]="'/productos'">Productos</a>
+    <a [routerLink]="'/carrito'" *ngIf="estaAutenticado">Carrito</a>
+    <a [routerLink]="'/perfil/' + idUsuario" *ngIf="estaAutenticado">Perfil</a>
+    <a href="#" (click)="cerrarSesion()" *ngIf="estaAutenticado">Cerrar Sesión</a>
+  </div>
+</nav>

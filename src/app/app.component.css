@@ -1,0 +1,15 @@
+/* Ocultar los formularios al cargar la página */
+.welcome-container .form-group {
+    display: none;
+  }
+  
+  /* Mostrar el formulario de inicio de sesión al hacer clic en el botón correspondiente */
+  .login-button:focus + .form-group, .login-button:active + .form-group {
+    display: block;
+  }
+  
+  /* Mostrar el formulario de registro al hacer clic en el botón correspondiente */
+  .registro-button:focus + .form-group, .registro-button:active + .form-group {
+    display: block;
+  }
+  

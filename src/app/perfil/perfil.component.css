@@ -1,0 +1,88 @@
+
+.datos-edicion-container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    flex-wrap: wrap; 
+  }
+  
+
+  .datos-personales {
+    flex: 1;
+    margin-right: 20px; 
+    margin-bottom: 20px; 
+  }
+  
+  .datos-personales h2 {
+    font-size: 1.6em; 
+    margin-bottom: 10px; 
+  }
+  
+  .datos-personales p {
+    font-size: 1.2em; 
+    margin-bottom: 8px; 
+  }
+  
+  
+  .edicion-perfil {
+    flex: 1;
+    margin-bottom: 20px; 
+  }
+  
+  .edicion-perfil h2 {
+    font-size: 1.6em; 
+    margin-bottom: 15px;
+  }
+  
+  .edicion-perfil label {
+    display: block;
+    font-size: 1.2em; 
+    margin-bottom: 5px;
+  }
+  
+  .edicion-perfil input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+  }
+  
+  .edicion-perfil button {
+    padding: 10px;
+    font-size: 1em; 
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+
+  .historial-pedidos {
+    width: 90%; 
+    margin-top: 20px;
+  }
+  
+  .historial-pedidos h2 {
+    font-size: 1.6em; 
+    margin-bottom: 15px;
+  }
+  
+  .historial-pedidos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .historial-pedidos th,
+  .historial-pedidos td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .historial-pedidos th {
+    background-color: #3498db;
+    color: #fff;
+  }
+  

@@ -1,0 +1,105 @@
+<div class="container">
+
+  <div class="crear-producto-btn" *ngIf="!mostrarFormularioCrear && UsuarioPermitido()">
+    <button (click)="mostrarFormularioCrear = !mostrarFormularioCrear">Crear Producto</button>
+  </div>
+
+
+  <div *ngIf="mostrarFormularioCrear && esUsuarioPermitido" class="formulario-crear">
+    <h2>Crear Nuevo Producto</h2>
+    <div class="error-message" *ngIf="errorCreacion">
+      {{ errorCreacion }}
+    </div>
+    <form (ngSubmit)="crearProducto()">
+
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" type="text" [(ngModel)]="nuevoProducto.nombre" name="nombre" required>
+      </div>
+
+      <div>
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" [(ngModel)]="nuevoProducto.descripcion" name="descripcion" required></textarea>
+      </div>
+
+      <div>
+        <label for="precio">Precio:</label>
+        <input id="precio" type="number" [(ngModel)]="nuevoProducto.precio" name="precio" required>
+      </div>
+
+      <div>
+        <label for="stock">Stock:</label>
+        <input id="stock" type="number" [(ngModel)]="nuevoProducto.stock" name="stock" required>
+      </div>
+
+      <div>
+        <label for="imagen_url">URL de la imagen:</label>
+        <input id="imagen_url" type="text" [(ngModel)]="nuevoProducto.imagen_url" name="imagen_url" required>
+      </div>
+
+
+
+      <button type="submit">Crear Producto</button>
+      <button type="button" (click)="cancelarCreacion()">Cancelar</button>
+    </form>
+  </div>
+
+
+  <div *ngFor="let producto of productos" class="cajita">
+
+
+    <img [src]="producto.imagen_url" alt="{{ producto.nombre }}">
+    <h3>{{ producto.nombre }}</h3>
+    <p>{{ producto.descripcion }}</p>
+    <p>Precio: {{ producto.precio }}€</p>
+    <p>Stock: {{ producto.stock }}</p>
+
+
+    <input type="number" [(ngModel)]="producto.cantidadSeleccionada" placeholder="Cantidad" min="1" max="{{ producto.stock }}" />
+
+
+    <button (click)="agregarAlCarrito(producto)">Agregar al Carrito</button>
+    <div *ngIf="producto.mostrarMensajeNoUnidades" class="no-unidades-message">
+      Ya no quedan más unidades.
+    </div>
+
+    <div *ngIf="mostrarMensajeError && !esUsuarioPermitido" class="error-message">
+      Tienes que iniciar sesión para añadir productos al carrito.
+    </div>
+    <button *ngIf="esUsuarioPermitido" (click)="iniciarEdicion(producto)">Editar</button>
+    <button *ngIf="esUsuarioPermitido && !editando" (click)="eliminarProducto(producto.id)">Eliminar</button>
+
+
+
+    <div *ngIf="errorEdicion" class="error-message">
+      Tienes que rellenar todos los campos.
+    </div>
+    <div *ngIf="editando && productoEditado.id === producto.id">
+      <form (ngSubmit)="guardarCambios()">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" type="text" [(ngModel)]="productoEditado.nombre" name="nombre" required>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" [(ngModel)]="productoEditado.descripcion" name="descripcion" required></textarea>
+
+        <label for="precio">Precio:</label>
+        <input id="precio" type="number" [(ngModel)]="productoEditado.precio" name="precio" required>
+
+        <label for="stock">Stock:</label>
+        <input id="stock" type="number" [(ngModel)]="productoEditado.stock" name="stock" required>
+
+        <label for="imagen_url">URL de la imagen:</label>
+        <input id="imagen_url" type="text" [(ngModel)]="productoEditado.imagen_url" name="imagen_url" required>
+
+        <button type="submit">Guardar cambios</button>
+        <button type="button" (click)="cancelarEdicion()">Cancelar</button>
+      </form>
+      <div *ngIf="mensajeError" class="error-message">
+        {{ mensajeError }}
+        
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 

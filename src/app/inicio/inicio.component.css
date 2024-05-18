@@ -1,0 +1,86 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.inicio-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.inicio-container h1 {
+    font-size: 2em;
+}
+
+.inicio-container p {
+    font-size: 1.3em; 
+    color: #333; 
+    line-height: 1.6; 
+    text-align: justify; 
+    margin-bottom: 20px;
+}
+
+.ir-a-tienda-button {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+
+.logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.login-button, .registro-button {
+    padding: 10px;
+    font-size: 1em;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+
+.error-message {
+    color: #c0392b;
+    margin-top: 10px;
+}
+
+
+  

@@ -1,0 +1,30 @@
+<div *ngIf="carrito.carritoProductos.length > 0 || carritoVacio">
+  <h2>Carrito de Compras</h2>
+
+  <div *ngFor="let producto of carrito.carritoProductos">
+    <!-- Agregar la condición para ocultar productos con cantidad 0 -->
+    <div class="producto-item" *ngIf="producto.cantidad > 0">
+      <div class="nombre">{{ producto.producto.nombre }}</div>
+      <div class="precio">Precio: {{ producto.producto.precio * producto.cantidad }}€</div>
+      <div class="cantidad">Cantidad: {{ producto.cantidad }}</div>
+      <button (click)="modificarCantidad(producto.producto.id, producto.cantidad + 1)">Aumentar Cantidad</button>
+      <button (click)="modificarCantidad(producto.producto.id, producto.cantidad - 1)" [disabled]="producto.cantidad === 0">Disminuir Cantidad</button>
+      <div *ngIf="mostrarMensajeNoUnidades" class="no-unidades-message">
+        Ya no quedan más unidades.
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="precio-total" *ngIf="carrito.precioTotal > 0">
+    <p>Precio Total: {{ carrito.precioTotal }}€</p>
+  </div>
+
+  <!-- Agregar el botón de compra y vaciar carrito solo si hay productos -->
+  <button (click)="realizarCompra()" *ngIf="carrito.precioTotal > 0" (click)="vaciarCarrito()">Comprar</button>
+  <button (click)="vaciarCarrito()" *ngIf="carrito.precioTotal > 0">Vaciar Carrito</button>
+
+
+<div *ngIf="carritoVacio && !mostrarMensajeNoUnidades">
+  <p>El carrito está vacío.</p>
+</div>
